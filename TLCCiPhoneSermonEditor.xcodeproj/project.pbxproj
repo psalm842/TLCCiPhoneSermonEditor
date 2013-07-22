@@ -18,10 +18,10 @@
 		48473D1D1787B894000E133F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48473D1C1787B894000E133F /* Default@2x.png */; };
 		48473D1F1787B895000E133F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48473D1E1787B895000E133F /* Default-568h@2x.png */; };
 		48473D221787B895000E133F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48473D201787B895000E133F /* MainStoryboard.storyboard */; };
-		48473D251787B895000E133F /* LeagueManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48473D231787B895000E133F /* LeagueManager.xcdatamodeld */; };
 		48473D281787B895000E133F /* SermonSeriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48473D271787B895000E133F /* SermonSeriesTableViewController.m */; };
 		48473D331788EA37000E133F /* SermonSeriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48473D321788EA37000E133F /* SermonSeriesViewController.m */; };
 		485192CC179560C60003BD7E /* SermonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 485192CB179560C60003BD7E /* SermonViewController.m */; };
+		487BAE8B179DEFAE00AC5FF8 /* SermonDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 487BAE89179DEFAE00AC5FF8 /* SermonDataModel.xcdatamodeld */; };
 		48CB6E6C179017EE00684476 /* SermonListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48CB6E6B179017EE00684476 /* SermonListViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -41,13 +41,13 @@
 		48473D1C1787B894000E133F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		48473D1E1787B895000E133F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		48473D211787B895000E133F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		48473D241787B895000E133F /* LeagueManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LeagueManager.xcdatamodel; sourceTree = "<group>"; };
-		48473D261787B895000E133F /* SermonSeriesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SermonSeriesTableViewController.h; sourceTree = "<group>"; };
-		48473D271787B895000E133F /* SermonSeriesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SermonSeriesTableViewController.m; sourceTree = "<group>"; };
-		48473D311788EA37000E133F /* SermonSeriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonSeriesViewController.h; sourceTree = "<group>"; };
-		48473D321788EA37000E133F /* SermonSeriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonSeriesViewController.m; sourceTree = "<group>"; };
+		48473D261787B895000E133F /* SermonSeriesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SermonSeriesTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		48473D271787B895000E133F /* SermonSeriesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SermonSeriesTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		48473D311788EA37000E133F /* SermonSeriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SermonSeriesViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		48473D321788EA37000E133F /* SermonSeriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SermonSeriesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		485192CA179560C60003BD7E /* SermonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonViewController.h; sourceTree = "<group>"; };
 		485192CB179560C60003BD7E /* SermonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonViewController.m; sourceTree = "<group>"; };
+		487BAE8A179DEFAE00AC5FF8 /* SermonDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SermonDataModel.xcdatamodel; sourceTree = "<group>"; };
 		48CB6E6A179017EE00684476 /* SermonListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonListViewController.h; sourceTree = "<group>"; };
 		48CB6E6B179017EE00684476 /* SermonListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,8 +108,8 @@
 				48CB6E6A179017EE00684476 /* SermonListViewController.h */,
 				48CB6E6B179017EE00684476 /* SermonListViewController.m */,
 				485192CA179560C60003BD7E /* SermonViewController.h */,
+				487BAE89179DEFAE00AC5FF8 /* SermonDataModel.xcdatamodeld */,
 				485192CB179560C60003BD7E /* SermonViewController.m */,
-				48473D231787B895000E133F /* LeagueManager.xcdatamodeld */,
 				48473D0F1787B894000E133F /* Supporting Files */,
 			);
 			path = LeagueManager;
@@ -197,11 +197,11 @@
 			files = (
 				48473D151787B894000E133F /* main.m in Sources */,
 				48473D191787B894000E133F /* AppDelegate.m in Sources */,
-				48473D251787B895000E133F /* LeagueManager.xcdatamodeld in Sources */,
 				48473D281787B895000E133F /* SermonSeriesTableViewController.m in Sources */,
 				48473D331788EA37000E133F /* SermonSeriesViewController.m in Sources */,
 				48CB6E6C179017EE00684476 /* SermonListViewController.m in Sources */,
 				485192CC179560C60003BD7E /* SermonViewController.m in Sources */,
+				487BAE8B179DEFAE00AC5FF8 /* SermonDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,13 +329,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		48473D231787B895000E133F /* LeagueManager.xcdatamodeld */ = {
+		487BAE89179DEFAE00AC5FF8 /* SermonDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				48473D241787B895000E133F /* LeagueManager.xcdatamodel */,
+				487BAE8A179DEFAE00AC5FF8 /* SermonDataModel.xcdatamodel */,
 			);
-			currentVersion = 48473D241787B895000E133F /* LeagueManager.xcdatamodel */;
-			path = LeagueManager.xcdatamodeld;
+			currentVersion = 487BAE8A179DEFAE00AC5FF8 /* SermonDataModel.xcdatamodel */;
+			path = SermonDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

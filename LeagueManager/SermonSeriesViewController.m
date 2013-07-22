@@ -18,10 +18,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (_team)
+    if (_sermonSeries)
     {
-        _name.text = [_team valueForKey:@"name"];
-        _uniformColor.text = [_team valueForKey:@"uniformColor"];
+        _seriesname.text = [_sermonSeries valueForKey:@"seriesname"];
+        _sermonseriesimageurl.text = [_sermonSeries valueForKey:@"sermonseriesimageurl"];
     }
 }
 
@@ -31,15 +31,15 @@
 {
     if (_rootController)
     {
-        if(_team)
+        if(_sermonSeries)
         {
-            [_team setValue:_name.text forKey:@"name"];
-            [_team setValue:_uniformColor.text forKey:@"uniformColor"];
+            [_sermonSeries setValue:_seriesname.text forKey:@"seriesname"];
+            [_sermonSeries setValue:_sermonseriesimageurl.text forKey:@"sermonseriesimageurl"];
             [_rootController saveContext];
         }
         else
         {
-            [_rootController insertTeamWithName:_name.text uniformColor:_uniformColor.text];
+            [_rootController insertSermonSeriesWithName:_seriesname.text sermonseriesimageurl:_sermonseriesimageurl.text];
         }
     }
     [self dismissViewControllerAnimated:YES completion:nil];

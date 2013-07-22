@@ -27,11 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	if (_player)
+	if (_sermon)
     {
-        _firstName.text = [_player valueForKey:@"firstName"];
-        _lastName.text = [_player valueForKey:@"lastName"];
-        _email.text = [_player valueForKey:@"email"];
+        _sermonTitle.text = [_sermon valueForKey:@"title"];
+        _description.text = [_sermon valueForKey:@"description"];
+        _videourl.text = [_sermon valueForKey:@"videourl"];
     }
 }
 
@@ -45,11 +45,11 @@
 
 
 
-- (void)initWithRootController:(SermonSeriesTableViewController *)aRootController team:(NSManagedObject *)team player:(NSManagedObject *)player
+- (void)initWithRootController:(SermonSeriesTableViewController *)aRootController sermonSeries:(NSManagedObject *)sermonSeries sermon:(NSManagedObject *)sermon
 {
     _rootController = aRootController;
-    _team = team;
-    _player = player;
+    _sermonSeries = sermonSeries;
+    _sermon = sermon;
 }
 
 
@@ -59,15 +59,15 @@
 {
     if (_rootController)
     {
-        if (_player)
+        if (_sermon)
         {
-            [_player setValue:_firstName.text forKey:@"firstName"];
-            [_player setValue:_lastName.text forKey:@"lastName"];
-            [_player setValue:_email.text forKey:@"email"];
+            [_sermon setValue:_sermonTitle.text forKey:@"title"];
+            [_sermon setValue:_description.text forKey:@"description"];
+            [_sermon setValue:_videourl.text forKey:@"videourl"];
             [_rootController saveContext];
         } else
         {
-            [_rootController insertPlayerWithTeam:_team firstName:_firstName.text lastName:_lastName.text email:_email.text];
+            [_rootController insertSermonWithSermonSeries:_sermonSeries title:_sermonTitle.text description:_description.text videourl:_videourl.text];
         }
     }
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -84,9 +84,9 @@
 
 - (IBAction)confirmDelete:(id)sender
 {
-    if (_player)
+    if (_sermon)
     {
-        UIActionSheet *confirm = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Player" otherButtonTitles:nil];
+        UIActionSheet *confirm = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete sermon" otherButtonTitles:nil];
         
         confirm.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
         [confirm showInView:self.view];
@@ -99,7 +99,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0 && _rootController) {
-        [_rootController deletePlayer:_player];
+        [_rootController deletesermon:_sermon];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }

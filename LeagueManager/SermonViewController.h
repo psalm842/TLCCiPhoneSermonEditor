@@ -12,14 +12,14 @@
 
 @interface SermonViewController : UIViewController <UIActionSheetDelegate>
 
-@property (nonatomic, weak) IBOutlet UITextField *firstName;
-@property (nonatomic, weak) IBOutlet UITextField *lastName;
-@property (nonatomic, weak) IBOutlet UITextField *email;
-@property (nonatomic, strong) NSManagedObject *team;
-@property (nonatomic, strong) NSManagedObject *player;
+@property (nonatomic, weak) IBOutlet UITextField *sermonTitle;
+@property (nonatomic, weak) IBOutlet UITextField *description;
+@property (nonatomic, weak) IBOutlet UITextField *videourl;
+@property (nonatomic, strong) NSManagedObject *sermonSeries;
+@property (nonatomic, strong) NSManagedObject *sermon;
 @property (nonatomic, strong) SermonSeriesTableViewController *rootController;
 
-- (void)initWithRootController:(SermonSeriesTableViewController *)aRootController team:(NSManagedObject *)team player:(NSManagedObject *)player;
+- (void)initWithRootController:(SermonSeriesTableViewController *)aRootController sermonSeries:(NSManagedObject *)sermonSeries sermon:(NSManagedObject *)sermon;
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
 - (IBAction)confirmDelete:(id)sender;

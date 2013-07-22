@@ -12,10 +12,10 @@
 
 @interface SermonListViewController : UITableViewController
 
-@property (nonatomic, strong) NSManagedObject *team;
+@property (nonatomic, strong) NSManagedObject *sermonSeries;
 @property (nonatomic, weak) SermonSeriesTableViewController *rootController;
 
 
-- (NSArray *)sortPlayers;
+- (NSArray *)sortsermons;
 
 @end

@@ -87,12 +87,12 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Team Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJe-7m-nld">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Series Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJe-7m-nld">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Uniform Color:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fy4-HF-53d">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Image URL:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fy4-HF-53d">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -223,12 +223,12 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nd-BF-HfQ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nd-BF-HfQ">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0G-Gn-ERB">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0G-Gn-ERB">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="KxG-dL-OH9"/>
                                 </constraints>
@@ -236,7 +236,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuu-5m-rV5">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Video URL:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuu-5m-rV5">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="BUp-h7-3hu"/>
                                 </constraints>
@@ -309,6 +309,7 @@
                         <constraints>
                             <constraint firstItem="kzG-ox-WMw" firstAttribute="leading" secondItem="nfr-5R-Rwn" secondAttribute="leading" type="default" id="0o1-LR-oQy"/>
                             <constraint firstAttribute="trailing" secondItem="nfr-5R-Rwn" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2sz-a0-PzB"/>
+                            <constraint firstAttribute="bottom" secondItem="Rxi-7w-SWm" secondAttribute="bottom" constant="27" id="5m8-oZ-c86"/>
                             <constraint firstItem="EKH-r3-WTl" firstAttribute="top" secondItem="CrQ-NO-r1B" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8IW-zT-RNH"/>
                             <constraint firstAttribute="trailing" secondItem="kzG-ox-WMw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="CKz-6Z-9HB"/>
                             <constraint firstItem="z77-kG-UZF" firstAttribute="baseline" secondItem="nuu-5m-rV5" secondAttribute="baseline" type="default" id="Hgd-Wc-03S"/>
@@ -323,7 +324,6 @@
                             <constraint firstItem="f0G-Gn-ERB" firstAttribute="top" secondItem="PQL-O2-1a5" secondAttribute="top" constant="59" id="U6p-5e-gBJ"/>
                             <constraint firstItem="Rxi-7w-SWm" firstAttribute="top" secondItem="EKH-r3-WTl" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="XTD-Oa-Cf4"/>
                             <constraint firstItem="f0G-Gn-ERB" firstAttribute="leading" secondItem="PQL-O2-1a5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="aDf-wn-Wwg"/>
-                            <constraint firstItem="CrQ-NO-r1B" firstAttribute="top" secondItem="PQL-O2-1a5" secondAttribute="top" constant="147" id="cAU-UD-Yp2"/>
                             <constraint firstItem="5Nd-BF-HfQ" firstAttribute="top" secondItem="PQL-O2-1a5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="dBn-3t-iwz"/>
                             <constraint firstItem="CrQ-NO-r1B" firstAttribute="leading" secondItem="PQL-O2-1a5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="g14-NF-hNt"/>
                             <constraint firstItem="EKH-r3-WTl" firstAttribute="leading" secondItem="PQL-O2-1a5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="igU-1h-B7F"/>

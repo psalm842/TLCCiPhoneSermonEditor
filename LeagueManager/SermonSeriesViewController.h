@@ -12,9 +12,9 @@
 
 @interface SermonSeriesViewController : UIViewController
 
-@property (nonatomic, weak) IBOutlet UITextField *name;
-@property (nonatomic, weak) IBOutlet UITextField *uniformColor;
-@property (nonatomic, strong) NSManagedObject *team;
+@property (nonatomic, weak) IBOutlet UITextField *seriesname;
+@property (nonatomic, weak) IBOutlet UITextField *sermonseriesimageurl;
+@property (nonatomic, strong) NSManagedObject *sermonSeries;
 @property (nonatomic, strong) SermonSeriesTableViewController *rootController;
 
 - (IBAction)save:(id)sender;

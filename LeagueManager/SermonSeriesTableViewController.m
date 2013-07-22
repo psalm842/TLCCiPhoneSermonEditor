@@ -54,14 +54,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"editTeam" sender:self];
+    [self performSegueWithIdentifier:@"editSermonSeries" sender:self];
 }
 
 
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"viewPlayers" sender:[tableView cellForRowAtIndexPath:indexPath]];
+    [self performSegueWithIdentifier:@"viewSermons" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
 
@@ -113,17 +113,17 @@
 {
     [[segue destinationViewController] setRootController:self];
     
-    if ([[segue identifier] isEqualToString:@"editTeam"])
+    if ([[segue identifier] isEqualToString:@"editSermonSeries"])
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setTeam:object];
+        [[segue destinationViewController] setSermonSeries:object];
     }
-    else if ([[segue identifier] isEqualToString:@"viewPlayers"])
+    else if ([[segue identifier] isEqualToString:@"viewSermons"])
     {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setTeam:object];
+        [[segue destinationViewController] setSermonSeries:object];
     }
 }
 
@@ -139,14 +139,14 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Team" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SermonSeries" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"seriesname" ascending:YES];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -168,10 +168,14 @@
     return _fetchedResultsController;
 }    
 
+
+
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView beginUpdates];
 }
+
+
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
@@ -186,6 +190,8 @@
             break;
     }
 }
+
+
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
@@ -213,6 +219,8 @@
     }
 }
 
+
+
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
@@ -231,24 +239,24 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"name"] description];
-    cell.detailTextLabel.text = [[object valueForKey:@"uniformColor"] description];
+    cell.textLabel.text = [[object valueForKey:@"seriesname"] description];
+    cell.detailTextLabel.text = [[object valueForKey:@"sermonseriesimageurl"] description];
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 }
 
 
 
 #pragma mark - Core Data Add/Remove Functions
-- (void)insertTeamWithName:(NSString *)name uniformColor:(NSString *)uniformColor
+- (void)insertSermonSeriesWithName:(NSString *)seriesname sermonseriesimageurl:(NSString *)sermonseriesimageurl
 {
     //Create a new instance of the entity managed by the fetched results controller.
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
-    // Configure the new team
-    [newManagedObject setValue:name forKey:@"name"];
-    [newManagedObject setValue:uniformColor forKey:@"uniformColor"];
+    // Configure the new sermonSeries
+    [newManagedObject setValue:seriesname forKey:@"seriesname"];
+    [newManagedObject setValue:sermonseriesimageurl forKey:@"sermonseriesimageurl"];
     
     // Save the context
     [self saveContext];
@@ -272,27 +280,27 @@
 
 
 
-- (void)insertPlayerWithTeam:(NSManagedObject *)team firstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email
+- (void)insertSermonWithSermonSeries:(NSManagedObject *)sermonSeries title:(NSString *)title description:(NSString *)description videourl:(NSString *)videourl
 {
-    // Create the Player
+    // Create the sermon
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSManagedObject *player = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:context];
+    NSManagedObject *sermon = [NSEntityDescription insertNewObjectForEntityForName:@"Sermon" inManagedObjectContext:context];
     
-    [player setValue:firstName forKey:@"firstName"];
-    [player setValue:lastName forKey:@"lastName"];
-    [player setValue:email forKey:@"email"];
-    [player setValue:team forKey:@"team"];
+    [sermon setValue:title forKey:@"title"];
+    [sermon setValue:description forKey:@"description"];
+    [sermon setValue:videourl forKey:@"videourl"];
+    [sermon setValue:sermonSeries forKey:@"sermonseries"];
     
     [self saveContext];
 }
 
 
 
-- (void)deletePlayer:(NSManagedObject *)player
+- (void)deletesermon:(NSManagedObject *)sermon
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     
-    [context deleteObject:player];
+    [context deleteObject:sermon];
     [self saveContext];
 }
 @end

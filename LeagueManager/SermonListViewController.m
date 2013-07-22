@@ -37,7 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Players";
+    self.title = @"sermons";
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -67,7 +67,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [(NSSet *)[_team valueForKey:@"Players"] count];
+    return [(NSSet *)[_sermonSeries valueForKey:@"sermons"] count];
 }
 
 
@@ -77,10 +77,10 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSManagedObject *player = [[self sortPlayers] objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",[[player valueForKey:@"firstName"] description],[[player valueForKey:@"lastName"] description]];
+    NSManagedObject *sermon = [[self sortsermons] objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",[[sermon valueForKey:@"title"] description],[[sermon valueForKey:@"description"] description]];
     
-    cell.detailTextLabel.text = [[player valueForKey:@"email"] description];
+    cell.detailTextLabel.text = [[sermon valueForKey:@"videourl"] description];
     
     return cell;
 }
@@ -127,12 +127,12 @@
 
 
 #pragma mark - Instance Methods
-- (NSArray *)sortPlayers
+- (NSArray *)sortsermons
 {
-    NSSortDescriptor *sortLastNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+    NSSortDescriptor *sortLastNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"description" ascending:YES];
     
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortLastNameDescriptor, nil];
-    return [[(NSSet *)[_team valueForKey:@"players"] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+    return [[(NSSet *)[_sermonSeries valueForKey:@"sermons"] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
 }
 
 
@@ -140,13 +140,13 @@
 #pragma mark - Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSManagedObject *player = nil;
+    NSManagedObject *sermon = nil;
     
-    if ([[segue identifier] isEqualToString:@"editPlayer"]) {
-        player = [[self sortPlayers] objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+    if ([[segue identifier] isEqualToString:@"editsermon"]) {
+        sermon = [[self sortsermons] objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
     }
     
-    [[segue destinationViewController] initWithRootController:_rootController team:_team player:player];
+    [[segue destinationViewController] initWithRootController:_rootController sermonSeries:_sermonSeries sermon:sermon];
 }
 
 @end

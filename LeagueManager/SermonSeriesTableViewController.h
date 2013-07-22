@@ -13,9 +13,9 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-- (void) insertTeamWithName:(NSString *)name uniformColor:(NSString *)uniformColor;
+- (void) insertSermonSeriesWithName:(NSString *)seriesname sermonseriesimageurl:(NSString *)sermonseriesimageurl;
 - (void) saveContext;
-- (void)insertPlayerWithTeam:(NSManagedObject *)team firstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email;
-- (void)deletePlayer:(NSManagedObject *)player;
+- (void)insertSermonWithSermonSeries:(NSManagedObject *)sermonSeries title:(NSString *)title description:(NSString *)description videourl:(NSString *)videourl;
+- (void)deletesermon:(NSManagedObject *)sermon;
 
 @end
